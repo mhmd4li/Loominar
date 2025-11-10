@@ -13,8 +13,6 @@ BitLoom is a Python-based open-source utility designed to **export static analys
 pip install bitloom
 bitloom
 
----
-
 ### 🧾 License
 
 This project is licensed under the **MIT License** — see the [LICENSE](./LICENSE) file for details.
