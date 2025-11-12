@@ -6,7 +6,7 @@ def get_user_inputs():
     Returns a dictionary of configuration parameters.
     """
 
-    print("🧶 BitLoom — SonarQube Report Exporter\n")
+    print("🧶 Loominar — SonarQube Report Exporter\n")
 
     sonar_url = input("Enter SonarQube server URL (e.g., http://localhost:9000): ").strip()
     if not sonar_url:
@@ -24,12 +24,13 @@ def get_user_inputs():
     if fmt not in ["word", "excel", "csv"]:
         raise ValueError("Invalid format. Must be 'word', 'excel', or 'csv'.")
 
-    output_dir = input("Enter output directory (leave blank for ./Reports): ").strip()
+    user_documents = os.path.join(os.path.expanduser("~"), "Documents")
+    default_dir = os.path.join(user_documents, "Loominar", cfg["project_key"]) # User Documents folder
+    output_dir = input(f"Enter output directory (leave blank for {default_dir}): ").strip()
     if not output_dir:
-        output_dir = "./Reports"
-
-    if not os.path.exists(output_dir):
-        os.makedirs(output_dir, exist_ok=True)
+        output_dir = default_dir
+    os.makedirs(output_dir, exist_ok=True)
+    print(f"📁 Reports will be saved to: {output_dir}")
 
     verbosity = input("Select verbosity level (1=Low, 2=Medium, 3=High): ").strip()
     verbosity = int(verbosity) if verbosity.isdigit() and 1 <= int(verbosity) <= 3 else 2

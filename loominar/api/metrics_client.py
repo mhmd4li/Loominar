@@ -15,7 +15,7 @@ class MetricsClient(BaseClient):
         data = self.get("/api/qualitygates/project_status", {"projectKey": project_key})
         return data["projectStatus"]
 
-# bitloom/api/metrics_client.py
+# loominar/api/metrics_client.py
 # Metrics and quality gate
 # High-Level Metrics + Quality Gate
 # Simple, compact, and clean

@@ -81,5 +81,5 @@ class ExcelReport(BaseReport):
         print(f"✅ Excel report saved: {filename}")
 
 
-# bitloom/report/excel_report.py
+# loominar/report/excel_report.py
 # Includes summary sheet and colored severity column.

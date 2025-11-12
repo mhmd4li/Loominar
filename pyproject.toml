@@ -3,9 +3,9 @@ requires = ["setuptools>=68.2.2", "wheel>=0.41.2"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "bitloom"
+name = "loominar"
 version = "0.2.0"
-description = "BitLoom — a Python-based open-source utility for exporting SonarQube analysis and quality metrics into professional Word, Excel, and CSV reports."
+description = "Loominar — a Python-based open-source utility for exporting SonarQube analysis and quality metrics into professional Word, Excel, and CSV reports."
 readme = "README.md"
 requires-python = ">=3.9"
 license = { text = "MIT" }
@@ -23,7 +23,7 @@ keywords = [
     "csv",
     "automation",
     "devops",
-    "bitloom"
+    "Loominar"
 ]
 
 classifiers = [
@@ -51,10 +51,10 @@ optional-dependencies = {
 }
 
 [project.urls]
-Homepage = "https://github.com/mhmd4li/BitLoom"
-Documentation = "https://github.com/mhmd4li/BitLoom#readme"
-Repository = "https://github.com/mhmd4li/BitLoom"
-Issues = "https://github.com/mhmd4li/BitLoom/issues"
+Homepage = "https://github.com/mhmd4li/Loominar"
+Documentation = "https://github.com/mhmd4li/Loominar#readme"
+Repository = "https://github.com/mhmd4li/Loominar"
+Issues = "https://github.com/mhmd4li/Loominar/issues"
 
 [project.scripts]
-bitloom = "bitloom.main:main"
+loominar = "loominar.main:main"

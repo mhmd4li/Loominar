@@ -1,6 +1,6 @@
-from bitloom.input_handler import get_user_inputs
-from bitloom.api import MetricsClient, IssuesClient
-from bitloom.report.report_manager import ReportManager
+from loominar.input_handler import get_user_inputs
+from loominar.api import MetricsClient, IssuesClient
+from loominar.report.report_manager import ReportManager
 
 def main():
     cfg = get_user_inputs()

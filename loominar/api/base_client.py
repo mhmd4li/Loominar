@@ -34,7 +34,7 @@ class BaseClient:
                     sys.exit(f"❌ Failed after 3 retries for {endpoint}")
 
 
-# bitloom/api/base_client.py
+# loominar/api/base_client.py
 # Core request/response handling + retries
 # Low-level HTTP Engine
 # Handles all authenticated requests, retry logic, and debug verbosity

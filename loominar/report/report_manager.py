@@ -18,5 +18,5 @@ class ReportManager:
         else:
             print("❌ Unsupported format. Choose: word / excel / csv")
 
-# bitloom/report/report_manager.py
+# loominar/report/report_manager.py
 # A clean orchestrator to pick the correct report generator dynamically

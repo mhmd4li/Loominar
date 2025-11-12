@@ -22,5 +22,5 @@ class CsvReport(BaseReport):
         df.to_csv(filename, index=False)
         print(f"✅ CSV report saved: {filename}")
 
-# bitloom/report/csv_report.py
+# loominar/report/csv_report.py
 # Simple, dependency-light export

@@ -78,5 +78,5 @@ class WordReport(BaseReport):
 
 
 
-# bitloom/report/word_report.py
+# loominar/report/word_report.py
 # Handles Word export with color-coded severities and summary

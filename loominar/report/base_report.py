@@ -1,6 +1,6 @@
 import os
 import platform
-from bitloom import __version__ as BITLOOM_VERSION
+from loominar import __version__ as LOOMINAR_VERSION
 from datetime import datetime
 from collections import Counter
 import matplotlib.pyplot as plt
@@ -87,7 +87,7 @@ class BaseReport:
     def _get_metadata(self):
         """Generate a dictionary of report metadata."""
         return {
-            "Tool": f"BitLoom v{BITLOOM_VERSION}",
+            "Tool": f"Loominar v{LOOMINAR_VERSION}",
             "Generated On": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
             "Host": platform.node(),
             "System": f"{platform.system()} {platform.release()}",
@@ -108,5 +108,5 @@ class BaseReport:
         )
 
 
-# bitloom/report/base_report.py
+# loominar/report/base_report.py
 # Contains shared constants, color palette, filename logic, and the summary builder

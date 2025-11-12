@@ -1,6 +1,6 @@
-# 🧶 BitLoom
+# 🧶 Loominar
 
-**BitLoom** weaves together static code analysis metrics into exportable, human-readable reports.  
+**Loominar** weaves together static code analysis metrics into exportable, human-readable reports.  
 Generate clean **PDF, Word, or Excel** documents from **SonarQube** results — ideal for audits, compliance reviews, or management reporting.
 
 ### ✨ Features
@@ -17,8 +17,8 @@ Generate clean **PDF, Word, or Excel** documents from **SonarQube** results — 
 
 ### 🚀 Quick Start
 ```bash
-pip install bitloom
-bitloom
+pip install loominar
+loominar
 
 ### 🧾 License
 

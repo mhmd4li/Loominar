@@ -11,6 +11,6 @@ def render_progress(current, total, prefix="", bar_length=40):
         sys.stdout.write("\n")
 
 
-## bitloom/api/utils.py
+## loominar/api/utils.py
 # Common functions like progress bar + verbosity logger
 # Keeps UI/verbosity helper logic cleanly isolated

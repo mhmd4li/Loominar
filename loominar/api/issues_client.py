@@ -84,7 +84,7 @@ class IssuesClient(BaseClient):
         return list(unique.values()), fmt
     
 
-# bitloom/api/issues_client.py
+# loominar/api/issues_client.py
 # Issue fetching, pagination, progress bar
 # Issues, Pagination, and Progress
 # This is where progress bars and dataset warnings live
