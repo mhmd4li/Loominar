@@ -9,13 +9,13 @@ class BaseClient:
         self.auth = (token, "")
         self.verbosity = verbosity
 
-    def _log(self, message, level=2):
+    def _log(self, message, level=2, severity=1):
         if self.verbosity >= level:
-            if level == 0:
+            if severity == 1:
                 c.info(message, flush=True)
-            elif level == 1:
+            elif severity == 2:
                 c.warn(message, flush=True)
-            else:
+            elif severity == 3:
                 c.error(message, flush=True)
 
     def get(self, endpoint, params=None):
@@ -33,7 +33,7 @@ class BaseClient:
                 resp.raise_for_status()
                 return resp.json()
             except Exception as e:
-                self._log(f"⚠️ Attempt {attempt + 1} failed: {e}", 1)
+                self._log(f"⚠️ Attempt {attempt + 1} failed: {e}", 1, 2)
                 if attempt < 2:
                     time.sleep(2)
                 else:

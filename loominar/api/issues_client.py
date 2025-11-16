@@ -40,21 +40,21 @@ class IssuesClient(BaseClient):
             return segment_issues
 
         # Initial count
-        first = self.get("/api/issues/search", {"componentKeys": project_key, "ps": 1, "p": 1})
+        first = self.get("/api/issues/search", {"componentKeys": project_key, "ps": 1, "p": 1, "resolved": "false"})
         total = first.get("paging", {}).get("total", 0)
-        self._log(f"📊 Total reported issues: {total}", 2)
+        self._log(f"📊 Total reported issues: {total}", 2, 1)
 
         # Handle large datasets based on execution mode: prompt in interactive mode, auto-switch to Excel in CLI mode.
         if no_cnfrm == False:
             if fmt == "word" and total > MAX_RESULTS:
-                self._log("\n⚠️  WARNING: More than 10,000 issues found.", 1)
+                self._log("\n⚠️  WARNING: More than 10,000 issues found.", 1, 2)
                 choice = input("   Continue with Word export? (y/n): ").strip().lower()
                 if choice != "y":
                     fmt = "excel"
-                    self._log("   ✅ Switched to Excel export.", 1)
+                    self._log("   ✅ Switched to Excel export.", 1, 1)
         else:
             if fmt == "word" and total > MAX_RESULTS:
-                self._log("\n⚠️  WARNING: Issue count exceeds 10,000. For reliability, the report will be generated in Excel format instead.", 1)
+                self._log("\n⚠️  WARNING: Issue count exceeds 10,000. For reliability, the report will be generated in Excel format instead.", 1, 2)
                 fmt = "excel"
 
         if total <= MAX_RESULTS:
@@ -65,13 +65,13 @@ class IssuesClient(BaseClient):
             return all_issues, fmt
 
         # Split by severity/type
-        self._log("⚙️  Splitting by severity/type due to large dataset...", 2)
+        self._log("⚙️  Splitting by severity/type due to large dataset...", 2, 1)
         for sev in SEVERITIES:
             params = {"componentKeys": project_key, "statuses": "OPEN,CONFIRMED", "severities": sev}
             sev_total = self.get("/api/issues/search", {**params, "ps": 1, "p": 1}).get("paging", {}).get("total", 0)
             if sev_total == 0:
                 continue
-            self._log(f"🔹 {sev}: {sev_total} issues", 2)
+            self._log(f"🔹 {sev}: {sev_total} issues", 2, 1)
 
             if sev_total <= MAX_RESULTS:
                 all_issues.extend(fetch_segment(params, prefix=f"{sev}"))
@@ -81,11 +81,11 @@ class IssuesClient(BaseClient):
                     sub_total = self.get("/api/issues/search", {**t_params, "ps": 1, "p": 1}).get("paging", {}).get("total", 0)
                     if sub_total == 0:
                         continue
-                    self._log(f"  🔸 {sev}-{t}: {sub_total} issues", 2)
+                    self._log(f"  🔸 {sev}-{t}: {sub_total} issues", 2, 1)
                     all_issues.extend(fetch_segment(t_params, prefix=f"{sev}-{t}"))
 
         unique = {i["key"]: i for i in all_issues}
-        self._log(f"\n✅ Total unique issues fetched: {len(unique)}", 1)
+        self._log(f"\n✅ Total unique issues fetched: {len(unique)}", 1, 1)
         return list(unique.values()), fmt
     
 
